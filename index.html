@@ -24,25 +24,33 @@
   <body>
     <button id="mainPlant" class="mainPlant"><img src="https://cdn.discordapp.com/attachments/1548167542030340108/1548180844525387846/image.png?ex=6aa61f45&is=6aa4cdc5&hm=2f9436c0f0652ee76729c8c97f01999b556b0ce49763ec6d372f68bfc7fdcf9b&"></button>
     <button id="upgrade1">increase click power by 2x, price: <span id='upgrade1-price'>0</span></button>
+    <button id="upgrade2">increase cps by 1, price: <span id="upgrade2-price">0</span></button>
     <h1>You have <span id="water-display">0</span> waters</h1>
     <h1>Water per click: <span id="waterPC">0</span></h1>
+    <h1>Water per sec: <span id="waterPS">0</span></h1>
     
     <script>
       var waterAmount = 0;
       var waterPerClick = 1;
       var waterPerSec = 0;
       var upgrade1price = 100;
+      var upgrade2price = 300;
       const display = document.getElementById('water-display');
-      const upgrade1DIS = document.getElementById('upgrade1-price')
+      const upgrade1DIS = document.getElementById('upgrade1-price');
+      const upgrade2DIS = document.getElementById('upgrade2-price');
       const waterButton = document.getElementById('mainPlant');
       const upgrade1 = document.getElementById('upgrade1');
+      const upgrade2 = document.getElementById('upgrade2');
       const waterPerC = document.getElementById('waterPC');
-      const interval = setInterval(wps, 16.66666)
+      const waterPerS = document.getElementById('waterPS');
+      const interval = setInterval(wps, 16.66666);
 
       function wps(){
         waterAmount = waterAmount + (waterPerSec / 60)
         upgrade1DIS.textContent = Math.floor(upgrade1price);
+        upgrade2DIS.textContent = Math.floor(upgrade2price);
         waterPerC.textContent = Math.floor(waterPerClick);
+        waterPerS.textContent = Math.floor(waterPerSec);
         display.textContent = Math.floor(waterAmount);
       }
 
@@ -55,6 +63,14 @@
           waterAmount-=upgrade1price;
           waterPerClick*=2;
           upgrade1price*=3.5;
+        }
+      });
+
+      upgrade2.addEventListener('click', function(){
+        if(waterAmount >= upgrade2price){
+          waterAmount-=upgrade2price;
+          waterPerSec++;
+          upgrade2price*=1.15;
         }
       });
     </script>
