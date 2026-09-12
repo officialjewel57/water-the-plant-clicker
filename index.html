@@ -3,22 +3,45 @@
 <!DOCTYPE html>
 
 <html>
+  <head>
+    <style>
+      body {
+        background-color: powderblue;
+        font-family: "Trebuchet MS", sans-serif;
+      }
+    </style>
+  </head>
   <body>
     <button id="mainPlant">water the plant</button>
+    <button id="upgrade1">increase click power by 2x, price: <span id='upgrade1-price'>0</span></button>
     <h1>You have <span id="water-display">0</span> waters</h1>
     <script>
       var waterAmount = 0;
+      var waterPerClick = 1;
+      var waterPerSec = 0;
+      var upgrade1price = 100;
       const display = document.getElementById('water-display');
+      const upgrade1DIS = document.getElementById('upgrade1-price')
       const waterButton = document.getElementById('mainPlant');
+      const upgrade1 = document.getElementById('upgrade1');
       const interval = setInterval(wps, 16.66666)
 
       function wps(){
+        waterAmount = waterAmount + (waterPerSec / 60)
+        upgrade1DIS.textContent = Math.floor(upgrade1price);
         display.textContent = Math.floor(waterAmount);
       }
 
       waterButton.addEventListener('click', function(){
-        waterAmount+=1;
-        waterAmount*=1.01;
+        waterAmount = waterAmount + waterPerClick;
+      });
+
+      upgrade1.addEventListener('click', function(){
+        if(waterAmount >= upgrade1price){
+          waterAmount-=upgrade1price;
+          waterPerClick*=2;
+          upgrade1price*=3.5;
+        }
       });
     </script>
   </body>
