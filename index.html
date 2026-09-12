@@ -18,14 +18,15 @@
     </style>
   </head>
   <body>
+    <audio autoplay loop>
+      <source src="snd/drake-hotline-bling.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
     <button id="mainPlant" class="mainPlant"><img src="https://cdn.discordapp.com/attachments/1548167542030340108/1548180844525387846/image.png?ex=6aa61f45&is=6aa4cdc5&hm=2f9436c0f0652ee76729c8c97f01999b556b0ce49763ec6d372f68bfc7fdcf9b&"></button>
     <button id="upgrade1">increase click power by 2x, price: <span id='upgrade1-price'>0</span></button>
     <h1>You have <span id="water-display">0</span> waters</h1>
     <h1>Water per click: <span id="waterPC">0</span></h1>
-    <audio autoplay loop>
-      <source src="audio/drake-hotline-bling.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+    
     <script>
       var waterAmount = 0;
       var waterPerClick = 1;
