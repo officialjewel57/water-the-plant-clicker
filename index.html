@@ -1,6 +1,24 @@
-<!DOCTYPE HTML>
+// Welcome to the mess that is this html file, it contains most of the things of the entire game.
+
+<!DOCTYPE html>
+
 <html>
   <body>
-    <title>Water the plant clicker</title>
+    <button id="mainPlant">water the plant</button>
+    <h1>You have <span id="water-display">0</span> waters</h1>
+    <script>
+      var waterAmount = 0;
+      const display = document.getElementById('water-display');
+      const waterButton = document.getElementById('mainPlant');
+      const interval = setInterval(wps, 16.66666)
+
+      function wps(){
+        display.textContent = Math.floor(waterAmount);
+      }
+
+      waterButton.addEventListener('click', function(){
+        waterAmount++;
+      });
+    </script>
   </body>
 </html>
