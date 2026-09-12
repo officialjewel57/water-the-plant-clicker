@@ -15,6 +15,7 @@
     <button id="mainPlant">water the plant</button>
     <button id="upgrade1">increase click power by 2x, price: <span id='upgrade1-price'>0</span></button>
     <h1>You have <span id="water-display">0</span> waters</h1>
+    <h1>Water per click: <span id="waterPC">0</span></h1>
     <script>
       var waterAmount = 0;
       var waterPerClick = 1;
@@ -24,11 +25,13 @@
       const upgrade1DIS = document.getElementById('upgrade1-price')
       const waterButton = document.getElementById('mainPlant');
       const upgrade1 = document.getElementById('upgrade1');
+      const waterPerC = document.getElementById('waterPC');
       const interval = setInterval(wps, 16.66666)
 
       function wps(){
         waterAmount = waterAmount + (waterPerSec / 60)
         upgrade1DIS.textContent = Math.floor(upgrade1price);
+        waterPerC.textContent = Math.floor(waterPerClick);
         display.textContent = Math.floor(waterAmount);
       }
 
@@ -44,5 +47,6 @@
         }
       });
     </script>
+    
   </body>
 </html>
