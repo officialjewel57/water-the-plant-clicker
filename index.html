@@ -22,9 +22,15 @@
     </style>
   </head>
   <body>
-    <button id="mainPlant" class="mainPlant"><img src="https://cdn.discordapp.com/attachments/1548167542030340108/1548180844525387846/image.png?ex=6aa61f45&is=6aa4cdc5&hm=2f9436c0f0652ee76729c8c97f01999b556b0ce49763ec6d372f68bfc7fdcf9b&"></button>
+    <img src="https://cdn.discordapp.com/attachments/1548167542030340108/1548180844525387846/image.png?ex=6aa61f45&is=6aa4cdc5&hm=2f9436c0f0652ee76729c8c97f01999b556b0ce49763ec6d372f68bfc7fdcf9b&" id="mainPlant">
     <button id="upgrade1">increase click power by 2x, price: <span id='upgrade1-price'>0</span></button>
     <button id="upgrade2">increase cps by 1, price: <span id="upgrade2-price">0</span></button>
+    <button id="upgrade3">increase cps by 5, price: <span id='upgrade3-price'>0</span></button>
+    <button id="upgrade4">increase cps by 25, price: <span id="upgrade4-price">0</span></button>
+    <button id="upgrade5">increase cps by 125, price: <span id='upgrade5-price'>0</span></button>
+    <button id="upgrade6">increase cps by 625, price: <span id="upgrade6-price">0</span></button>
+    <button id="upgrade7">increase cps by 3125, price: <span id='upgrade7-price'>0</span></button>
+    <button id="upgrade8">increase cps by 15625, price: <span id="upgrade8-price">0</span></button>
     <h1>You have <span id="water-display">0</span> waters</h1>
     <h1>Water per click: <span id="waterPC">0</span></h1>
     <h1>Water per sec: <span id="waterPS">0</span></h1>
@@ -35,12 +41,30 @@
       var waterPerSec = 0;
       var upgrade1price = 100;
       var upgrade2price = 300;
+      var upgrade3price = 1500;
+      var upgrade4price = 9000;
+      var upgrade5price = 45000;
+      var upgrade6price = 210000;
+      var upgrade7price = 1150000;
+      var upgrade8price = 6275000;
       const display = document.getElementById('water-display');
       const upgrade1DIS = document.getElementById('upgrade1-price');
       const upgrade2DIS = document.getElementById('upgrade2-price');
+      const upgrade3DIS = document.getElementById('upgrade3-price');
+      const upgrade4DIS = document.getElementById('upgrade4-price');
+      const upgrade5DIS = document.getElementById('upgrade5-price');
+      const upgrade6DIS = document.getElementById('upgrade6-price');
+      const upgrade7DIS = document.getElementById('upgrade7-price');
+      const upgrade8DIS = document.getElementById('upgrade8-price');
       const waterButton = document.getElementById('mainPlant');
       const upgrade1 = document.getElementById('upgrade1');
       const upgrade2 = document.getElementById('upgrade2');
+      const upgrade3 = document.getElementById('upgrade3');
+      const upgrade4 = document.getElementById('upgrade4');
+      const upgrade5 = document.getElementById('upgrade5');
+      const upgrade6 = document.getElementById('upgrade6');
+      const upgrade7 = document.getElementById('upgrade7');
+      const upgrade8 = document.getElementById('upgrade8');
       const waterPerC = document.getElementById('waterPC');
       const waterPerS = document.getElementById('waterPS');
       const interval = setInterval(wps, 16.66666);
@@ -71,6 +95,54 @@
           waterAmount-=upgrade2price;
           waterPerSec++;
           upgrade2price*=1.15;
+        }
+      });
+
+      upgrade3.addEventListener('click', function(){
+        if(waterAmount >= upgrade3price){
+          waterAmount-=upgrade3price;
+          waterPerSec+=5;
+          upgrade3price*=1.15;
+        }
+      });
+
+      upgrade4.addEventListener('click', function(){
+        if(waterAmount >= upgrade4price){
+          waterAmount-=upgrade4price;
+          waterPerSec+=25;
+          upgrade4price*=1.15;
+        }
+      });
+
+      upgrade5.addEventListener('click', function(){
+        if(waterAmount >= upgrade5price){
+          waterAmount-=upgrade5price;
+          waterPerSec+=125;
+          upgrade5price*=1.15;
+        }
+      });
+
+      upgrade6.addEventListener('click', function(){
+        if(waterAmount >= upgrade6price){
+          waterAmount-=upgrade6price;
+          waterPerSec+=625;
+          upgrade6price*=1.15;
+        }
+      });
+
+      upgrade7.addEventListener('click', function(){
+        if(waterAmount >= upgrade7price){
+          waterAmount-=upgrade7price;
+          waterPerSec+=3125;
+          upgrade7price*=1.15;
+        }
+      });
+
+      upgrade8.addEventListener('click', function(){
+        if(waterAmount >= upgrade8price){
+          waterAmount-=upgrade8price;
+          waterPerSec+=15625;
+          upgrade8price*=1.15;
         }
       });
     </script>
