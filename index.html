@@ -84,8 +84,14 @@
         display.textContent = Math.floor(waterAmount);
       }
 
+      let currentNow = Date.now();
+
       waterButton.addEventListener('click', function(){
-        waterAmount = waterAmount + waterPerClick;
+        var n = Date.now();
+        if(n-currentNow >= 16){
+          waterAmount = waterAmount + waterPerClick;
+          currentNow = n;
+        }
       });
 
       upgrade1.addEventListener('click', function(){
